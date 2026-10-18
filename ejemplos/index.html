@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de componentes · ESDIN</title>
+  <!-- En local: rutas relativas. Servido por n8n: /webhook/esdin/esdin.css y /webhook/esdin/esdin.js -->
+  <link rel="stylesheet" href="../assets/esdin.css">
+  <script src="../assets/esdin.js" defer></script>
+  <style>
+    /* Solo para esta página de catálogo */
+    .demo-logo { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 16px; border: 2px dashed var(--esdin-gris-200); border-radius: 4px; font-size: 12px; color: var(--esdin-gris-700); text-align: center; line-height: 1.2; }
+    .demo-paleta { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .demo-color { border: 1px solid var(--esdin-borde); border-radius: 8px; overflow: hidden; background: #fff; font-size: 14px; }
+    .demo-color div { height: 64px; }
+    .demo-color p { margin: 0; padding: 8px 12px; }
+  </style>
+</head>
+<body>
+  <a class="esdin-saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="esdin-cabecera">
+    <div class="esdin-cabecera__interior">
+      <a class="esdin-cabecera__logo" href="#" aria-label="Inicio">
+        <!-- Sustituir por el fichero oficial: <img src="/webhook/esdin/logo-carm.svg" alt="Región de Murcia"> -->
+        <span class="demo-logo">Logo oficial CARM<br>(assets/logo/)</span>
+      </a>
+      <div class="esdin-cabecera__app">
+        <span class="esdin-cabecera__nombre">Panel de ejemplo</span>
+        <span class="esdin-cabecera__unidad">ESDIN · Servicio Murciano de Salud</span>
+      </div>
+      <div class="esdin-cabecera__usuario">Usuario: jrcaballero</div>
+    </div>
+  </header>
+
+  <nav class="esdin-nav" aria-label="Navegación principal">
+    <ul>
+      <li><a href="#" aria-current="page">Resumen</a></li>
+      <li><a href="#tabla">Solicitudes</a></li>
+      <li><a href="#formulario">Nueva solicitud</a></li>
+      <li><a href="#paleta">Identidad</a></li>
+    </ul>
+  </nav>
+
+  <nav class="esdin-migas" aria-label="Migas de pan">
+    <ol>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Herramientas</a></li>
+      <li><span aria-current="page">Catálogo de componentes</span></li>
+    </ol>
+  </nav>
+
+  <main id="contenido" class="esdin-principal">
+    <h1 class="esdin-titulo">Catálogo de componentes</h1>
+    <p class="esdin-descripcion">Muestra de todos los componentes de <code class="esdin-mono">esdin.css</code> con la identidad corporativa CARM. Los datos son ficticios.</p>
+
+    <!-- Filtros -->
+    <form class="esdin-filtros" aria-label="Filtros" onsubmit="event.preventDefault(); EsdinUI.toast('Filtros aplicados', {tipo: 'ok'});">
+      <div class="esdin-campo">
+        <label for="f-area">Área de salud</label>
+        <select id="f-area" class="esdin-select">
+          <option>Todas</option><option>I · Murcia Oeste</option><option>II · Cartagena</option><option>III · Lorca</option>
+        </select>
+      </div>
+      <div class="esdin-campo">
+        <label for="f-desde">Desde</label>
+        <input id="f-desde" class="esdin-input" type="date" value="2026-09-01">
+      </div>
+      <div class="esdin-campo">
+        <label for="f-hasta">Hasta</label>
+        <input id="f-hasta" class="esdin-input" type="date" value="2026-09-30">
+      </div>
+      <div class="esdin-acciones">
+        <button class="esdin-btn esdin-btn--primario" type="submit">Aplicar</button>
+        <button class="esdin-btn esdin-btn--discreto" type="reset">Limpiar</button>
+      </div>
+    </form>
+
+    <!-- KPIs -->
+    <section class="esdin-seccion" aria-labelledby="t-kpis">
+      <h2 id="t-kpis" class="esdin-solo-lectores">Indicadores principales</h2>
+      <div class="esdin-rejilla esdin-rejilla--kpi">
+        <div class="esdin-kpi">
+          <span class="esdin-kpi__etiqueta">Solicitudes recibidas</span>
+          <span class="esdin-kpi__valor">1.284</span>
+          <span class="esdin-kpi__variacion esdin-kpi__variacion--sube"><span aria-hidden="true">▲</span> +4,2 % vs. mes anterior</span>
+        </div>
+        <div class="esdin-kpi">
+          <span class="esdin-kpi__etiqueta">Tiempo medio de respuesta</span>
+          <span class="esdin-kpi__valor">2,6<span class="esdin-kpi__unidad">días</span></span>
+          <span class="esdin-kpi__variacion esdin-kpi__variacion--baja"><span aria-hidden="true">▲</span> +0,4 días vs. objetivo</span>
+        </div>
+        <div class="esdin-kpi esdin-kpi--acento">
+          <span class="esdin-kpi__etiqueta">Pendientes de revisión</span>
+          <span class="esdin-kpi__valor">37</span>
+          <span class="esdin-kpi__variacion">12 con más de 5 días</span>
+        </div>
+        <div class="esdin-kpi esdin-kpi--neutro">
+          <span class="esdin-kpi__etiqueta">Cobertura de datos</span>
+          <span class="esdin-kpi__valor">96,8<span class="esdin-kpi__unidad">%</span></span>
+          <span class="esdin-kpi__variacion">Objetivo: 95 %</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gráficos -->
+    <section class="esdin-seccion" aria-labelledby="t-graficos">
+      <div class="esdin-seccion__cabecera"><h2 id="t-graficos">Evolución y distribución</h2></div>
+      <div class="esdin-rejilla esdin-rejilla--2">
+        <figure class="esdin-tarjeta esdin-mb-0" style="margin:0">
+          <figcaption class="esdin-tarjeta__titulo">Solicitudes por semana</figcaption>
+          <svg class="esdin-grafico" viewBox="0 0 400 180" role="img" aria-labelledby="g1-desc">
+            <desc id="g1-desc">Línea de solicitudes por semana: semana 36, 268; semana 37, 301; semana 38, 322; semana 39, 393. Línea de resueltas: 250, 280, 310, 342.</desc>
+            <g stroke="#EAEAEA" stroke-width="1">
+              <line x1="40" y1="20" x2="390" y2="20"/><line x1="40" y1="70" x2="390" y2="70"/><line x1="40" y1="120" x2="390" y2="120"/><line x1="40" y1="150" x2="390" y2="150"/>
+            </g>
+            <g font-size="11" fill="#5A5C5B" font-family="inherit">
+              <text x="34" y="24" text-anchor="end">400</text><text x="34" y="74" text-anchor="end">300</text><text x="34" y="124" text-anchor="end">200</text>
+              <text x="60" y="168">S36</text><text x="170" y="168">S37</text><text x="280" y="168">S38</text><text x="370" y="168" text-anchor="middle">S39</text>
+            </g>
+            <polyline fill="none" stroke="#707372" stroke-width="2.5" points="65,95 175,80 285,65 370,49"/>
+            <polyline fill="none" stroke="#9D2235" stroke-width="3" points="65,86 175,70 285,59 370,23"/>
+            <g fill="#9D2235"><circle cx="65" cy="86" r="4"/><circle cx="175" cy="70" r="4"/><circle cx="285" cy="59" r="4"/><circle cx="370" cy="23" r="4"/></g>
+          </svg>
+          <ul class="esdin-leyenda">
+            <li><i style="background: var(--esdin-serie-1)"></i>Recibidas</li>
+            <li><i style="background: var(--esdin-serie-2)"></i>Resueltas</li>
+          </ul>
+        </figure>
+
+        <figure class="esdin-tarjeta esdin-mb-0" style="margin:0">
+          <figcaption class="esdin-tarjeta__titulo">Solicitudes por área de salud</figcaption>
+          <div role="list">
+            <div class="esdin-barra-h" role="listitem"><span>I · Murcia Oeste</span><div class="esdin-barra-h__pista"><div class="esdin-barra-h__valor" style="width:100%"></div></div><span class="esdin-num">412</span></div>
+            <div class="esdin-barra-h" role="listitem"><span>II · Cartagena</span><div class="esdin-barra-h__pista"><div class="esdin-barra-h__valor" style="width:78%"></div></div><span class="esdin-num">321</span></div>
+            <div class="esdin-barra-h" role="listitem"><span>VI · Vega Media</span><div class="esdin-barra-h__pista"><div class="esdin-barra-h__valor" style="width:61%"></div></div><span class="esdin-num">251</span></div>
+            <div class="esdin-barra-h" role="listitem"><span>III · Lorca</span><div class="esdin-barra-h__pista"><div class="esdin-barra-h__valor" style="width:44%"></div></div><span class="esdin-num">180</span></div>
+            <div class="esdin-barra-h" role="listitem"><span>Otras áreas</span><div class="esdin-barra-h__pista"><div class="esdin-barra-h__valor" style="width:29%; background: var(--esdin-gris)"></div></div><span class="esdin-num">120</span></div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Alertas -->
+    <section class="esdin-seccion" aria-labelledby="t-alertas">
+      <h2 id="t-alertas">Alertas</h2>
+      <div class="esdin-alerta esdin-alerta--info" role="status">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 11v6M12 7.5v.5"/></svg>
+        <div><p class="esdin-alerta__titulo">Datos actualizados</p><p>Última carga desde PostgreSQL: 18/10/2026 07:00.</p></div>
+      </div>
+      <div class="esdin-alerta esdin-alerta--aviso" role="status">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
+        <div><p class="esdin-alerta__titulo">Carga parcial</p><p>El área IX no ha enviado datos esta semana.</p></div>
+      </div>
+      <div class="esdin-alerta esdin-alerta--ok" role="status">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l3 3 5-6"/></svg>
+        <div><p class="esdin-alerta__titulo">Solicitud registrada</p><p>Se ha enviado una notificación al responsable.</p></div>
+      </div>
+      <div class="esdin-alerta esdin-alerta--error" role="alert">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 16.5v.5"/></svg>
+        <div><p class="esdin-alerta__titulo">No se ha podido conectar</p><p>El servicio de datos no responde. Inténtalo de nuevo en unos minutos.</p></div>
+      </div>
+    </section>
+
+    <!-- Tabla -->
+    <section class="esdin-seccion" id="tabla" aria-labelledby="t-tabla">
+      <div class="esdin-seccion__cabecera">
+        <h2 id="t-tabla">Solicitudes recientes</h2>
+        <div class="esdin-acciones">
+          <button class="esdin-btn esdin-btn--secundario esdin-btn--pequeno" type="button" onclick="EsdinUI.toast('Exportación iniciada')">Exportar CSV</button>
+        </div>
+      </div>
+      <div class="esdin-tabla-contenedor">
+        <table class="esdin-tabla">
+          <caption class="esdin-solo-lectores">Solicitudes recientes. Pulsa en una cabecera para ordenar.</caption>
+          <thead>
+            <tr>
+              <th scope="col"><button class="esdin-ordenar" type="button">Código</button></th>
+              <th scope="col"><button class="esdin-ordenar" type="button">Solicitante</button></th>
+              <th scope="col"><button class="esdin-ordenar" type="button">Área</button></th>
+              <th scope="col" aria-sort="descending"><button class="esdin-ordenar" type="button">Fecha</button></th>
+              <th scope="col" class="esdin-num"><button class="esdin-ordenar" type="button">Registros</button></th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="esdin-mono">SDU-2026-0412</td><td>Unidad de Calidad</td><td>I</td><td>17/10/2026</td><td class="esdin-num">12.480</td><td><span class="esdin-badge esdin-badge--aviso">Pendiente</span></td></tr>
+            <tr><td class="esdin-mono">SDU-2026-0411</td><td>Vigilancia Epidemiológica</td><td>II</td><td>16/10/2026</td><td class="esdin-num">3.902</td><td><span class="esdin-badge esdin-badge--ok">Entregada</span></td></tr>
+            <tr><td class="esdin-mono">SDU-2026-0409</td><td>Gerencia Área III</td><td>III</td><td>15/10/2026</td><td class="esdin-num">857</td><td><span class="esdin-badge esdin-badge--info">En proceso</span></td></tr>
+            <tr><td class="esdin-mono">SDU-2026-0405</td><td>Dirección de Enfermería</td><td>VI</td><td>14/10/2026</td><td class="esdin-num">24.016</td><td><span class="esdin-badge esdin-badge--error">Rechazada</span></td></tr>
+            <tr><td class="esdin-mono">SDU-2026-0401</td><td>Farmacia Hospitalaria</td><td>I</td><td>13/10/2026</td><td class="esdin-num">1.330</td><td><span class="esdin-badge esdin-badge--neutro">Archivada</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <nav class="esdin-paginacion" aria-label="Paginación de solicitudes">
+        <span class="esdin-paginacion__info">1–5 de 312 solicitudes</span>
+        <ul>
+          <li><button type="button" disabled aria-label="Página anterior">‹</button></li>
+          <li><a href="#" aria-current="page" aria-label="Página 1">1</a></li>
+          <li><a href="#" aria-label="Página 2">2</a></li>
+          <li><a href="#" aria-label="Página 3">3</a></li>
+          <li><span aria-hidden="true">…</span></li>
+          <li><a href="#" aria-label="Página 63">63</a></li>
+          <li><a href="#" aria-label="Página siguiente">›</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Estados -->
+    <section class="esdin-seccion" aria-labelledby="t-estados">
+      <h2 id="t-estados">Estados de carga, vacío y error</h2>
+      <div class="esdin-rejilla esdin-rejilla--2">
+        <div class="esdin-tarjeta" id="demo-cargando"></div>
+        <div class="esdin-tarjeta" id="demo-vacio"></div>
+      </div>
+    </section>
+
+    <!-- Pestañas + formulario -->
+    <section class="esdin-seccion" id="formulario" aria-labelledby="t-form">
+      <h2 id="t-form">Formulario</h2>
+      <div class="esdin-pestanas esdin-tarjeta">
+        <div role="tablist" aria-label="Tipo de solicitud">
+          <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true">Nueva solicitud</button>
+          <button role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false">Ayuda</button>
+        </div>
+        <div role="tabpanel" id="panel-a" aria-labelledby="tab-a">
+          <form class="esdin-form" id="form-demo" novalidate style="max-width: var(--esdin-ancho-form)">
+            <div class="esdin-fila-campos">
+              <div class="esdin-campo">
+                <label for="nombre">Nombre y apellidos <span class="esdin-obligatorio" aria-hidden="true">*</span></label>
+                <input id="nombre" class="esdin-input" type="text" autocomplete="name" required>
+              </div>
+              <div class="esdin-campo">
+                <label for="correo">Correo corporativo <span class="esdin-obligatorio" aria-hidden="true">*</span></label>
+                <input id="correo" class="esdin-input" type="email" autocomplete="email" aria-describedby="correo-ayuda" required>
+                <span class="esdin-ayuda" id="correo-ayuda">Debe terminar en @carm.es</span>
+              </div>
+            </div>
+            <div class="esdin-campo">
+              <label for="motivo">Motivo de la solicitud</label>
+              <textarea id="motivo" class="esdin-textarea"></textarea>
+            </div>
+            <fieldset class="esdin-grupo">
+              <legend>Formato de entrega</legend>
+              <label class="esdin-check"><input type="radio" name="formato" checked> Excel (.xlsx)</label>
+              <label class="esdin-check"><input type="radio" name="formato"> CSV</label>
+            </fieldset>
+            <label class="esdin-check"><input type="checkbox" id="lopd"> Acepto el tratamiento de datos conforme a la normativa vigente</label>
+            <div class="esdin-acciones esdin-acciones--fin">
+              <button class="esdin-btn esdin-btn--discreto" type="reset">Cancelar</button>
+              <button class="esdin-btn esdin-btn--primario" type="submit">Enviar solicitud</button>
+            </div>
+          </form>
+        </div>
+        <div role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>
+          <p>Las solicitudes se revisan en un plazo máximo de 5 días hábiles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Botones y badges -->
+    <section class="esdin-seccion" aria-labelledby="t-botones">
+      <h2 id="t-botones">Botones y estados</h2>
+      <div class="esdin-tarjeta">
+        <div class="esdin-acciones" style="margin-bottom: 16px">
+          <button class="esdin-btn esdin-btn--primario" type="button">Primario</button>
+          <button class="esdin-btn esdin-btn--secundario" type="button">Secundario</button>
+          <button class="esdin-btn esdin-btn--discreto" type="button">Discreto</button>
+          <button class="esdin-btn esdin-btn--peligro" type="button">Eliminar</button>
+          <button class="esdin-btn esdin-btn--primario" type="button" disabled>Deshabilitado</button>
+        </div>
+        <div class="esdin-acciones">
+          <span class="esdin-badge esdin-badge--ok">Activo</span>
+          <span class="esdin-badge esdin-badge--aviso">Pendiente</span>
+          <span class="esdin-badge esdin-badge--error">Error</span>
+          <span class="esdin-badge esdin-badge--info">En proceso</span>
+          <span class="esdin-badge esdin-badge--neutro">Archivado</span>
+          <span class="esdin-badge esdin-badge--marca">SMS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paleta -->
+    <section class="esdin-seccion" id="paleta" aria-labelledby="t-paleta">
+      <h2 id="t-paleta">Colores corporativos</h2>
+      <div class="demo-paleta">
+        <div class="demo-color"><div style="background:#9D2235"></div><p><strong>Rojo</strong> · Pantone 201 C<br><span class="esdin-mono">#9D2235</span></p></div>
+        <div class="demo-color"><div style="background:#FFB81C"></div><p><strong>Amarillo</strong> · Pantone 1235<br><span class="esdin-mono">#FFB81C</span></p></div>
+        <div class="demo-color"><div style="background:#707372"></div><p><strong>Gris</strong> · Pantone 424<br><span class="esdin-mono">#707372</span></p></div>
+        <div class="demo-color"><div style="background:#1F2124"></div><p><strong>Texto</strong> · derivado<br><span class="esdin-mono">#1F2124</span></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="esdin-pie">
+    <div class="esdin-pie__interior">
+      <span>ESDIN · Servicio Murciano de Salud · Región de Murcia</span>
+      <span>Sistema de diseño v1.0.0</span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      EsdinUI.estado(document.getElementById('demo-cargando'), 'cargando');
+      EsdinUI.estado(document.getElementById('demo-vacio'), 'vacio', { titulo: 'No hay solicitudes en este periodo', texto: 'Amplía el rango de fechas o elige otra área de salud.' });
+
+      var form = document.getElementById('form-demo');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var errores = [];
+        var nombre = document.getElementById('nombre');
+        var correo = document.getElementById('correo');
+        if (!nombre.value.trim()) errores.push({ campo: 'nombre', mensaje: 'Escribe tu nombre y apellidos' });
+        if (!/@carm\.es$/i.test(correo.value.trim())) errores.push({ campo: 'correo', mensaje: 'Escribe un correo que termine en @carm.es' });
+        if (!document.getElementById('lopd').checked) errores.push({ campo: 'lopd', mensaje: 'Debes aceptar el tratamiento de datos' });
+        if (errores.length) { EsdinUI.mostrarErrores(form, errores); return; }
+        EsdinUI.limpiarErrores(form);
+        EsdinUI.toast('Solicitud enviada correctamente', { tipo: 'ok' });
+        form.reset();
+      });
+      form.addEventListener('reset', function () { EsdinUI.limpiarErrores(form); });
+    });
+  </script>
+</body>
+</html>
