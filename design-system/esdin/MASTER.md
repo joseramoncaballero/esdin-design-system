@@ -236,3 +236,35 @@ La normativa de accesibilidad web del sector público (RD 1112/2018, EN 301 549 
 - [ ] Números y fechas en formato español.
 - [ ] Probado a 375, 768, 1024 y 1440 px y con zoom 200 %.
 - [ ] `prefers-reduced-motion` respetado.
+
+---
+
+## 11. Guía de peticiones para agentes
+
+Peticiones tipo para pedir una página nueva. Cópialas y rellena lo que va entre `< >`. Cada una indica qué estructura y qué componentes usar, para que el resultado salga coherente desde el primer intento.
+
+### Panel de indicadores
+
+> Crea un panel de indicadores para `<tema>` siguiendo `design-system/esdin/MASTER.md` y `pages/dashboard.md`. Datos desde el webhook `<GET /webhook/...>`, que devuelve `<estructura JSON>`. Filtros: `<área, rango de fechas…>`. KPIs: `<lista, con comparación y objetivo si lo hay>`. Gráficos: `<evolución temporal / reparto por categoría>`, cada uno con su tabla equivalente. Debajo, tabla de detalle ordenable con paginación. Incluye fecha de última actualización y estados de carga, vacío y error.
+
+### Formulario de alta o solicitud
+
+> Crea un formulario para `<qué se solicita>` siguiendo `MASTER.md`. Página con `.esdin-principal--form`. Campos: `<nombre, tipo, obligatorio, validación>`. Validación en cliente con `EsdinUI.mostrarErrores()` (resumen arriba y error en cada campo). Envío por `POST` a `<webhook>`; si va bien, alerta de confirmación en la página (no solo un toast) con el código asignado; si falla, alerta de error con opción de reintentar sin perder lo escrito.
+
+### Listado con búsqueda y acciones
+
+> Crea un listado de `<entidad>` siguiendo `MASTER.md`. Barra de filtros con búsqueda por texto y `<filtros>`, reflejados en la URL. Tabla con columnas `<lista>`, números alineados a la derecha, estado con `.esdin-badge`, ordenación y paginación ("1–25 de N"). Acciones por fila: `<ver, editar…>`; acciones masivas con casilla de selección y barra de acciones. Borrar siempre con confirmación.
+
+### Ficha de detalle
+
+> Crea la ficha de detalle de `<entidad>` siguiendo `MASTER.md`. Migas de pan hasta el listado. Cabecera con identificador, estado (`.esdin-badge`) y acciones principales. Datos agrupados en `.esdin-tarjeta` por bloques `<lista>`, con pestañas si hay más de tres bloques. Historial de cambios en tabla al final.
+
+### Revisión de una página existente
+
+> Revisa `<fichero o URL>` contra `MASTER.md` y su checklist. Enumera los incumplimientos por orden de gravedad (accesibilidad y marca primero) y corrígelos usando solo clases de `esdin.css`. No cambies el comportamiento ni las llamadas a webhooks.
+
+### Reglas para quien redacta la petición
+
+- Indica siempre **de dónde salen los datos** (webhook y forma del JSON). Si aún no existe, pide datos de ejemplo realistas y marcados como ficticios.
+- Di **quién la usa** (personal interno, mandos, profesionales sanitarios) y **en qué dispositivo**.
+- No pidas colores, fuentes ni estilos: ya están fijados aquí.
