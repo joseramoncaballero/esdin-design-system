@@ -152,7 +152,7 @@ a:hover { color: var(--esdin-rojo-700); }
 /* Logos: CARM siempre primero y con igual o mayor tamaño que el del SMS (Decreto 30/2008, art. 3.3) */
 .esdin-cabecera__logos { display: flex; align-items: center; gap: var(--esdin-e-4); }
 .esdin-cabecera__logo { display: flex; align-items: center; }
-.esdin-cabecera__logo img { height: 64px; width: auto; display: block; }
+.esdin-cabecera__logo img { height: 72px; width: auto; display: block; }
 .esdin-cabecera__logo--sms { border-left: 1px solid var(--esdin-borde); padding-left: var(--esdin-e-4); }
 .esdin-cabecera__logo--sms img { height: 56px; }
 .esdin-cabecera__app {
@@ -504,7 +504,7 @@ th[aria-sort="descending"] .esdin-ordenar::after { content: "▼"; color: var(--
 @media (max-width: 767px) {
   .esdin-cabecera__interior, .esdin-principal, .esdin-pie__interior, .esdin-migas { padding-left: var(--esdin-e-4); padding-right: var(--esdin-e-4); }
   .esdin-cabecera__app { border-left: none; padding-left: 0; }
-  .esdin-cabecera__logo img { height: 48px; }
+  .esdin-cabecera__logo img { height: 56px; }
   .esdin-cabecera__logo--sms img { height: 44px; }
   .esdin-cabecera__usuario { margin-left: 0; width: 100%; }
   .esdin-btn { min-height: 44px; }

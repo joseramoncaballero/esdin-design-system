@@ -10,11 +10,12 @@ Un workflow con un webhook por recurso:
 |---|---|---|---|
 | GET | `esdin/esdin.css` | contenido de `assets/esdin.css` | `text/css; charset=utf-8` |
 | GET | `esdin/esdin.js` | contenido de `assets/esdin.js` | `application/javascript; charset=utf-8` |
-| GET | `esdin/logo-carm.svg` | logo CARM en color | `image/svg+xml` |
+| GET | `esdin/logo-carm-salud.png` | logo CARM con Consejería de Salud (cabecera) | `image/png` |
+| GET | `esdin/logo-carm.svg` | logo CARM genérico en color (alternativa) | `image/svg+xml` |
 | GET | `esdin/logo-carm-negativo.svg` | logo CARM en negativo (solo sobre fondo rojo) | `image/svg+xml` |
 | GET | `esdin/logo-sms.png` | logo SMS | `image/png` |
 
-Para el PNG, en el *Respond to Webhook* elige *Respond With → Binary File* (léelo antes con *Read/Write Files from Disk* o guárdalo como base64 en PostgreSQL y conviértelo con *Convert to File*).
+Para los PNG, en el *Respond to Webhook* elige *Respond With → Binary File* (léelo antes con *Read/Write Files from Disk* o guárdalo como base64 en PostgreSQL y conviértelo con *Convert to File*).
 
 Cada rama:
 
@@ -28,7 +29,7 @@ En las páginas:
 ```html
 <link rel="stylesheet" href="/webhook/esdin/esdin.css?v=1.0.0">
 <script src="/webhook/esdin/esdin.js?v=1.0.0" defer></script>
-<img src="/webhook/esdin/logo-carm.svg" alt="Región de Murcia">
+<img src="/webhook/esdin/logo-carm-salud.png" alt="Región de Murcia, Consejería de Salud">
 <img src="/webhook/esdin/logo-sms.png" alt="Servicio Murciano de Salud">
 ```
 
@@ -40,7 +41,7 @@ En las páginas:
 
 ```sql
 CREATE TABLE IF NOT EXISTS esdin_util.recursos_ui (
-  nombre        text        NOT NULL,          -- 'esdin.css', 'esdin.js', 'logo-carm.svg'
+  nombre        text        NOT NULL,          -- 'esdin.css', 'esdin.js', 'logo-carm-salud.png'
   version       text        NOT NULL,          -- '1.0.0'
   content_type  text        NOT NULL,
   contenido     text        NOT NULL,          -- texto o base64 para binarios (PNG)
@@ -75,7 +76,7 @@ Publicar una versión nueva = insertar la fila y, en la misma transacción, desa
   <header class="esdin-cabecera">
     <div class="esdin-cabecera__interior">
       <div class="esdin-cabecera__logos">
-        <a class="esdin-cabecera__logo" href="/"><img src="/webhook/esdin/logo-carm.svg" alt="Región de Murcia. Inicio"></a>
+        <a class="esdin-cabecera__logo" href="/"><img src="/webhook/esdin/logo-carm-salud.png" alt="Región de Murcia, Consejería de Salud. Inicio"></a>
         <span class="esdin-cabecera__logo esdin-cabecera__logo--sms"><img src="/webhook/esdin/logo-sms.png" alt="Servicio Murciano de Salud"></span>
       </div>
       <div class="esdin-cabecera__app">

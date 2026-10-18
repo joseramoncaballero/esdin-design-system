@@ -22,14 +22,15 @@ Reglas que se derivan y afectan a estas páginas:
 - El **símbolo** (versión simplificada del Escudo Regional) y el **logotipo** ("Región de Murcia") se usan **siempre juntos** y **sin alterarlos** (art. 2.2 y 3.2). Nunca se redibujan, recolorean, recortan, deforman ni se les añaden elementos.
 - Los organismos y entes de derecho público (como el SMS) pueden tener imagen propia, pero **acompañada** del símbolo y logotipo CARM, y **no pueden usar el escudo ni sus elementos** dentro de su propia imagen (art. 3.3 y 3.4).
 - El logo se inserta **solo desde los ficheros de `assets/logo/`**. Nunca se genera con CSS, SVG dibujado a mano ni IA.
-- Tamaño mínimo del símbolo: **caja de 10 mm** (≈ 38 px a 96 dpi). En pantalla, el logo CARM horizontal nunca por debajo de **48 px de alto** (por debajo, el texto "Región de Murcia" deja de leerse).
-- En la cabecera van **los dos logos**: primero el de la CARM y después el del SMS, separados por una línea; el del SMS nunca más grande que el de la CARM.
+- Tamaño mínimo del símbolo: **caja de 10 mm** (≈ 38 px a 96 dpi). En pantalla, el logo CARM nunca por debajo de **48 px de alto** (por debajo, el texto deja de leerse).
+- En la cabecera van **los dos logos**: primero el de la CARM con la Consejería de Salud (`logo-carm-salud.png`) y después el del SMS, separados por una línea; el del SMS nunca más grande que el de la CARM.
 
 Ficheros disponibles:
 
 | Fichero | Qué es |
 |---|---|
-| `logo-carm.svg` | Versión principal "horizontal con símbolo centrado", en color. Extraída del Manual en SVG sin tocar la geometría; solo se han ajustado los rellenos a los equivalentes en pantalla de los Pantone oficiales. |
+| `logo-carm-salud.png` | **Logo de cabecera.** Versión "bandera izquierda" con "Región de Murcia / Consejería de Salud". PNG con transparencia (271×135 px) facilitado por ESDIN, con los colores ajustados a los Pantone oficiales. Se muestra a 72 px de alto (56 px en móvil); no ampliarlo por encima de su tamaño original (135 px). |
+| `logo-carm.svg` | Alternativa genérica: versión principal "horizontal con símbolo centrado", en color. Extraída del Manual en SVG sin tocar la geometría; solo se han ajustado los rellenos a los equivalentes en pantalla de los Pantone oficiales. |
 | `logo-carm-negativo.svg` | La misma versión en negativo. **Solo** sobre fondo rojo corporativo. |
 | `logo-sms.png` | Logotipo del SMS (rasterizado, recortado de márgenes desde el JPG original). Resolución limitada: no usar por encima de ~64 px de alto. |
 
