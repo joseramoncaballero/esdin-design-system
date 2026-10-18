@@ -83,7 +83,7 @@
   --esdin-sombra-2: 0 4px 12px rgba(31, 33, 36, 0.14);
   --esdin-ancho-max: 1440px;
   --esdin-ancho-form: 720px;
-  --esdin-transicion: 150ms ease;
+  --esdin-transicion: 150ms ease-out; /* Movimiento: ver MASTER §4.1 */
 }
 
 /* =========================================================

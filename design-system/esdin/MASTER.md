@@ -137,6 +137,18 @@ El manual fija la familia **Frutiger** (Bold 65 para "Región de Murcia", Light 
 - Sombras: solo `--esdin-sombra-1` (tarjetas) y `--esdin-sombra-2` (menús, modales, toasts). Sin glassmorphism, neumorfismo ni degradados decorativos.
 - Ancho máximo de contenido: 1440px. Formularios: 720px.
 
+### 4.1 Movimiento
+
+Antes de animar algo, la pregunta es: **¿esto debería animarse siquiera?** En una herramienta de trabajo que se usa muchas veces al día, la respuesta casi siempre es no.
+
+- **Solo se anima para dar respuesta a una acción o mostrar un cambio de estado**: hover y pulsación de botones, aparición de un aviso, apertura de un menú, carga de datos. Nunca para decorar.
+- **Duración máxima 200 ms**, con `ease-out` (rápido al empezar, frena al final). Token: `--esdin-transicion` (150 ms). Las salidas, más cortas que las entradas.
+- **Solo se animan `opacity`, `transform`, colores y bordes.** Nunca `width`, `height`, `top` ni `margin` (provocan saltos y van lentas en equipos antiguos).
+- **Sin animaciones en bucle** salvo el indicador de carga (`.esdin-cargando`). Sin animaciones al hacer scroll, ni efectos de "levitar", latir o agrandarse al pasar el ratón.
+- **Nada se mueve solo**: ni carruseles automáticos ni contadores que suben al cargar la página. Las cifras aparecen con su valor final.
+- **Siempre se desactiva con `prefers-reduced-motion`.** `esdin.css` ya lo hace de forma global; no lo anules en una página.
+- La interfaz debe ser **igual de comprensible sin ninguna animación**: el estado final (abierto, guardado, error) se comunica con texto, icono y color, no con el movimiento.
+
 ---
 
 ## 5. Estructura de página
@@ -216,6 +228,7 @@ La normativa de accesibilidad web del sector público (RD 1112/2018, EN 301 549 
 - Recolorear, redibujar o "modernizar" el escudo o el logotipo.
 - Usar el amarillo como texto, como color de foco o en bordes finos sobre blanco.
 - Degradados, glassmorphism, neón, sombras grandes, animaciones decorativas.
+- Animaciones de más de 200 ms, en bucle (salvo el indicador de carga), ligadas al scroll o que se disparan solas.
 - Morados/rosas "estilo IA", paletas ajenas a la CARM.
 - Placeholder como única etiqueta de un campo.
 - Errores comunicados solo con borde rojo.
@@ -235,7 +248,7 @@ La normativa de accesibilidad web del sector público (RD 1112/2018, EN 301 549 
 - [ ] Estados cargando / vacío / error implementados.
 - [ ] Números y fechas en formato español.
 - [ ] Probado a 375, 768, 1024 y 1440 px y con zoom 200 %.
-- [ ] `prefers-reduced-motion` respetado.
+- [ ] `prefers-reduced-motion` respetado y ninguna animación de más de 200 ms ni en bucle (salvo el indicador de carga).
 
 ---
 
