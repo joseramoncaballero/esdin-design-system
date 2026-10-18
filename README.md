@@ -16,7 +16,7 @@ Las páginas son HTML servido por **n8n** con datos de **PostgreSQL**.
 | `ejemplos/index.html` | Catálogo con todos los componentes |
 | `n8n/servir-recursos.md` | Cómo servir CSS, JS y logo desde n8n (webhooks o PostgreSQL) y plantilla mínima de página |
 | `docs/identidad/` | Decreto y Manual de Identidad Corporativa CARM |
-| `.claude/skills/` | Skill UI UX Pro Max (MIT) para Claude Code |
+| `.claude/skills/` | Skills para Claude Code: `ui-ux-pro-max` y `ui-styling` (buenas prácticas UI/UX) y `full-output-enforcement` (código completo, sin placeholders). Todas MIT |
 
 ## Colores corporativos
 

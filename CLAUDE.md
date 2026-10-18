@@ -24,6 +24,10 @@ Está en `.claude/skills/ui-ux-pro-max`. Úsala para consultar buenas prácticas
 python3 .claude/skills/ui-ux-pro-max/scripts/search.py "form validation error summary" --domain ux
 ```
 
+## Skill full-output-enforcement
+
+En `.claude/skills/full-output-enforcement` (MIT, de taste-skill). Al generar o editar páginas, CSS o JS, entrega siempre el fichero completo: sin `// ...`, `// TODO` ni secciones resumidas. Si no cabe, para en un punto limpio e indica qué falta.
+
 ## Documentación de identidad
 
 `docs/identidad/` contiene el Decreto 30/2008 y el Manual de Identidad Corporativa de la CARM.
