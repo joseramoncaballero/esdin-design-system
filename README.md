@@ -12,7 +12,7 @@ Las páginas son HTML servido por **n8n** con datos de **PostgreSQL**.
 | `design-system/esdin/pages/` | Reglas específicas por tipo de página (sobrescriben el MASTER) |
 | `assets/esdin.css` | Hoja de estilos única (tokens + componentes), sin dependencias |
 | `assets/esdin.js` | Utilidades: toasts, tablas ordenables, pestañas, validación, estados de carga, formato español |
-| `assets/logo/` | Ficheros oficiales del logotipo (añadir los oficiales) |
+| `assets/logo/` | Logos CARM (color y negativo, SVG) y SMS (PNG) |
 | `ejemplos/index.html` | Catálogo con todos los componentes |
 | `n8n/servir-recursos.md` | Cómo servir CSS, JS y logo desde n8n (webhooks o PostgreSQL) y plantilla mínima de página |
 | `docs/identidad/` | Decreto y Manual de Identidad Corporativa CARM |

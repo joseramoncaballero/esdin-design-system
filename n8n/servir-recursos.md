@@ -10,7 +10,11 @@ Un workflow con un webhook por recurso:
 |---|---|---|---|
 | GET | `esdin/esdin.css` | contenido de `assets/esdin.css` | `text/css; charset=utf-8` |
 | GET | `esdin/esdin.js` | contenido de `assets/esdin.js` | `application/javascript; charset=utf-8` |
-| GET | `esdin/logo-carm.svg` | logo oficial | `image/svg+xml` |
+| GET | `esdin/logo-carm.svg` | logo CARM en color | `image/svg+xml` |
+| GET | `esdin/logo-carm-negativo.svg` | logo CARM en negativo (solo sobre fondo rojo) | `image/svg+xml` |
+| GET | `esdin/logo-sms.png` | logo SMS | `image/png` |
+
+Para el PNG, en el *Respond to Webhook* elige *Respond With → Binary File* (léelo antes con *Read/Write Files from Disk* o guárdalo como base64 en PostgreSQL y conviértelo con *Convert to File*).
 
 Cada rama:
 
@@ -24,7 +28,8 @@ En las páginas:
 ```html
 <link rel="stylesheet" href="/webhook/esdin/esdin.css?v=1.0.0">
 <script src="/webhook/esdin/esdin.js?v=1.0.0" defer></script>
-<img src="/webhook/esdin/logo-carm.svg" alt="Región de Murcia" height="48">
+<img src="/webhook/esdin/logo-carm.svg" alt="Región de Murcia">
+<img src="/webhook/esdin/logo-sms.png" alt="Servicio Murciano de Salud">
 ```
 
 > El parámetro `?v=` fuerza la recarga cuando subas una versión nueva. Súbelo cada vez que cambie el fichero.
@@ -38,7 +43,7 @@ CREATE TABLE IF NOT EXISTS esdin_util.recursos_ui (
   nombre        text        NOT NULL,          -- 'esdin.css', 'esdin.js', 'logo-carm.svg'
   version       text        NOT NULL,          -- '1.0.0'
   content_type  text        NOT NULL,
-  contenido     text        NOT NULL,
+  contenido     text        NOT NULL,          -- texto o base64 para binarios (PNG)
   activo        boolean     NOT NULL DEFAULT false,
   creado_en     timestamptz NOT NULL DEFAULT now(),
   PRIMARY KEY (nombre, version)
@@ -69,7 +74,10 @@ Publicar una versión nueva = insertar la fila y, en la misma transacción, desa
   <a class="esdin-saltar" href="#contenido">Saltar al contenido</a>
   <header class="esdin-cabecera">
     <div class="esdin-cabecera__interior">
-      <a class="esdin-cabecera__logo" href="/"><img src="/webhook/esdin/logo-carm.svg" alt="Región de Murcia"></a>
+      <div class="esdin-cabecera__logos">
+        <a class="esdin-cabecera__logo" href="/"><img src="/webhook/esdin/logo-carm.svg" alt="Región de Murcia. Inicio"></a>
+        <span class="esdin-cabecera__logo esdin-cabecera__logo--sms"><img src="/webhook/esdin/logo-sms.png" alt="Servicio Murciano de Salud"></span>
+      </div>
       <div class="esdin-cabecera__app">
         <span class="esdin-cabecera__nombre">Nombre de la herramienta</span>
         <span class="esdin-cabecera__unidad">ESDIN · Servicio Murciano de Salud</span>

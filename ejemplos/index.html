@@ -9,7 +9,6 @@
   <script src="../assets/esdin.js" defer></script>
   <style>
     /* Solo para esta página de catálogo */
-    .demo-logo { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 16px; border: 2px dashed var(--esdin-gris-200); border-radius: 4px; font-size: 12px; color: var(--esdin-gris-700); text-align: center; line-height: 1.2; }
     .demo-paleta { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
     .demo-color { border: 1px solid var(--esdin-borde); border-radius: 8px; overflow: hidden; background: #fff; font-size: 14px; }
     .demo-color div { height: 64px; }
@@ -21,13 +20,14 @@
 
   <header class="esdin-cabecera">
     <div class="esdin-cabecera__interior">
-      <a class="esdin-cabecera__logo" href="#" aria-label="Inicio">
-        <!-- Sustituir por el fichero oficial: <img src="/webhook/esdin/logo-carm.svg" alt="Región de Murcia"> -->
-        <span class="demo-logo">Logo oficial CARM<br>(assets/logo/)</span>
-      </a>
+      <div class="esdin-cabecera__logos">
+        <!-- Servido por n8n: /webhook/esdin/logo-carm.svg y /webhook/esdin/logo-sms.png -->
+        <a class="esdin-cabecera__logo" href="#"><img src="../assets/logo/logo-carm.svg" alt="Región de Murcia. Inicio"></a>
+        <span class="esdin-cabecera__logo esdin-cabecera__logo--sms"><img src="../assets/logo/logo-sms.png" alt="Servicio Murciano de Salud"></span>
+      </div>
       <div class="esdin-cabecera__app">
         <span class="esdin-cabecera__nombre">Panel de ejemplo</span>
-        <span class="esdin-cabecera__unidad">ESDIN · Servicio Murciano de Salud</span>
+        <span class="esdin-cabecera__unidad">ESDIN · Equipo de Soporte y Desarrollo en Inteligencia de Negocio</span>
       </div>
       <div class="esdin-cabecera__usuario">Usuario: jrcaballero</div>
     </div>

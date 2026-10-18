@@ -21,8 +21,17 @@ Reglas que se derivan y afectan a estas páginas:
 
 - El **símbolo** (versión simplificada del Escudo Regional) y el **logotipo** ("Región de Murcia") se usan **siempre juntos** y **sin alterarlos** (art. 2.2 y 3.2). Nunca se redibujan, recolorean, recortan, deforman ni se les añaden elementos.
 - Los organismos y entes de derecho público (como el SMS) pueden tener imagen propia, pero **acompañada** del símbolo y logotipo CARM, y **no pueden usar el escudo ni sus elementos** dentro de su propia imagen (art. 3.3 y 3.4).
-- El logo se inserta **solo desde los ficheros oficiales** de `assets/logo/`. Nunca se genera con CSS, SVG dibujado a mano ni IA.
-- Tamaño mínimo del símbolo: **caja de 10 mm** (≈ 38 px a 96 dpi). En pantalla, no por debajo de **40 px de alto**.
+- El logo se inserta **solo desde los ficheros de `assets/logo/`**. Nunca se genera con CSS, SVG dibujado a mano ni IA.
+- Tamaño mínimo del símbolo: **caja de 10 mm** (≈ 38 px a 96 dpi). En pantalla, el logo CARM horizontal nunca por debajo de **48 px de alto** (por debajo, el texto "Región de Murcia" deja de leerse).
+- En la cabecera van **los dos logos**: primero el de la CARM y después el del SMS, separados por una línea; el del SMS nunca más grande que el de la CARM.
+
+Ficheros disponibles:
+
+| Fichero | Qué es |
+|---|---|
+| `logo-carm.svg` | Versión principal "horizontal con símbolo centrado", en color. Extraída del Manual en SVG sin tocar la geometría; solo se han ajustado los rellenos a los equivalentes en pantalla de los Pantone oficiales. |
+| `logo-carm-negativo.svg` | La misma versión en negativo. **Solo** sobre fondo rojo corporativo. |
+| `logo-sms.png` | Logotipo del SMS (rasterizado, recortado de márgenes desde el JPG original). Resolución limitada: no usar por encima de ~64 px de alto. |
 
 ---
 
@@ -134,7 +143,7 @@ El manual fija la familia **Frutiger** (Bold 65 para "Región de Murcia", Light 
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │ .esdin-cabecera  (blanco, borde inferior rojo 4px)           │
-│  [logo oficial CARM/SMS]  Nombre de la herramienta   usuario │
+│  [logo CARM] | [logo SMS]  Nombre de la herramienta  usuario │
 ├──────────────────────────────────────────────────────────────┤
 │ .esdin-migas  Inicio › Sección › Página                      │
 ├──────────────────────────────────────────────────────────────┤
@@ -218,7 +227,7 @@ La normativa de accesibilidad web del sector público (RD 1112/2018, EN 301 549 
 ## 10. Checklist antes de entregar una página
 
 - [ ] Enlaza solo `esdin.css` / `esdin.js` servidos por n8n; sin recursos externos.
-- [ ] Logo oficial desde `assets/logo/`, sin modificar, ≥ 40 px de alto.
+- [ ] Logos CARM (primero) y SMS desde `assets/logo/`, sin modificar; CARM ≥ 48 px de alto.
 - [ ] `lang="es"`, un `h1`, "Saltar al contenido".
 - [ ] Contraste verificado; ningún texto amarillo sobre blanco.
 - [ ] Foco visible y navegación completa con teclado.
