@@ -1,5 +1,5 @@
 /*!
- * ESDIN Design System — esdin.css v1.0.0
+ * ESDIN Design System — esdin.css v1.1.0
  * Servicio Murciano de Salud · Identidad corporativa CARM (Decreto 30/2008)
  * Reglas y criterios: design-system/esdin/MASTER.md
  * Servir siempre desde n8n. No depende de ningún recurso externo.
@@ -142,27 +142,45 @@ a:hover { color: var(--esdin-rojo-700); }
   background: var(--esdin-superficie);
   border-bottom: 4px solid var(--esdin-rojo);
 }
+/* Disposición (decisión de ESDIN, 22/10/2026): logotipo del SMS a la izquierda,
+   nombre de la herramienta en el centro y escudo de la CARM a la derecha.
+   El Decreto 30/2008 (art. 3.3) no fija el lado: exige que la imagen de la CARM
+   acompañe a la del organismo y prevalezca. Por eso el escudo es el más grande
+   (72 px frente a 56 px). La sesión del usuario va en una segunda línea. */
 .esdin-cabecera__interior {
   max-width: var(--esdin-ancho-max);
   margin: 0 auto;
   padding: var(--esdin-e-3) var(--esdin-e-5);
-  display: flex; align-items: center; gap: var(--esdin-e-5);
-  flex-wrap: wrap;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: var(--esdin-e-3) var(--esdin-e-5);
 }
-/* Logos: CARM siempre primero y con igual o mayor tamaño que el del SMS (Decreto 30/2008, art. 3.3) */
-.esdin-cabecera__logos { display: flex; align-items: center; gap: var(--esdin-e-4); }
-.esdin-cabecera__logo { display: flex; align-items: center; }
-.esdin-cabecera__logo img { height: 72px; width: auto; display: block; }
-.esdin-cabecera__logo--sms { border-left: 1px solid var(--esdin-borde); padding-left: var(--esdin-e-4); }
+.esdin-cabecera__logo { grid-row: 1; display: flex; align-items: center; }
+.esdin-cabecera__logo[hidden] { display: none; }
+.esdin-cabecera__logo img { width: auto; display: block; }
+.esdin-cabecera__logo--sms { grid-column: 1; justify-self: start; }
 .esdin-cabecera__logo--sms img { height: 56px; }
+.esdin-cabecera__logo--carm { grid-column: 3; justify-self: end; }
+.esdin-cabecera__logo--carm img { height: 72px; }
 .esdin-cabecera__app {
-  border-left: 1px solid var(--esdin-borde);
-  padding-left: var(--esdin-e-5);
-  display: flex; flex-direction: column;
+  grid-column: 2; grid-row: 1;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
 }
-.esdin-cabecera__nombre { font-size: var(--esdin-t-lg); font-weight: 700; color: var(--esdin-texto); }
+.esdin-cabecera__nombre { font-size: var(--esdin-t-xl); font-weight: 700; color: var(--esdin-texto); }
 .esdin-cabecera__unidad { font-size: var(--esdin-t-sm); color: var(--esdin-texto-secundario); }
-.esdin-cabecera__usuario { margin-left: auto; font-size: var(--esdin-t-sm); color: var(--esdin-texto-secundario); }
+.esdin-cabecera__usuario {
+  grid-column: 1 / -1; grid-row: 2; justify-self: end;
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--esdin-e-2);
+  font-size: var(--esdin-t-sm); color: var(--esdin-texto-secundario);
+}
+.esdin-cabecera__usuario:empty { display: none; }
+@media (max-width: 767px) {
+  .esdin-cabecera__interior { grid-template-columns: 1fr 1fr; padding-left: var(--esdin-e-4); padding-right: var(--esdin-e-4); }
+  .esdin-cabecera__logo--sms img { height: 44px; }
+  .esdin-cabecera__logo--carm { grid-column: 2; }
+  .esdin-cabecera__logo--carm img { height: 56px; }
+  .esdin-cabecera__app { grid-column: 1 / -1; grid-row: 2; }
+  .esdin-cabecera__usuario { grid-row: 3; justify-self: stretch; justify-content: center; }
+}
 
 .esdin-nav {
   background: var(--esdin-superficie);
@@ -502,11 +520,7 @@ th[aria-sort="descending"] .esdin-ordenar::after { content: "▼"; color: var(--
    12. Responsive, movimiento reducido, impresión
    ========================================================= */
 @media (max-width: 767px) {
-  .esdin-cabecera__interior, .esdin-principal, .esdin-pie__interior, .esdin-migas { padding-left: var(--esdin-e-4); padding-right: var(--esdin-e-4); }
-  .esdin-cabecera__app { border-left: none; padding-left: 0; }
-  .esdin-cabecera__logo img { height: 56px; }
-  .esdin-cabecera__logo--sms img { height: 44px; }
-  .esdin-cabecera__usuario { margin-left: 0; width: 100%; }
+  .esdin-principal, .esdin-pie__interior, .esdin-migas { padding-left: var(--esdin-e-4); padding-right: var(--esdin-e-4); }
   .esdin-btn { min-height: 44px; }
   .esdin-acciones--fin { justify-content: stretch; }
   .esdin-acciones--fin .esdin-btn { flex: 1 1 auto; }

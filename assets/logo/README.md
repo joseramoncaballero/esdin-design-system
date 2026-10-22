@@ -5,7 +5,7 @@
 | `logo-carm-salud.png` | PNG facilitado por ESDIN (`original/logo-carm-salud-original.png`): versión bandera izquierda "Región de Murcia / Consejería de Salud". Colores de los píxeles ajustados a los Pantone oficiales, sin otros cambios | **Logo de cabecera** de todas las páginas |
 | `logo-carm.svg` | (Alternativa genérica) Manual de Identidad Corporativa CARM en SVG (`docs/identidad/manual-identidad-corporativa-carm.svg`), grupo `g12376`: versión principal horizontal con símbolo centrado, en color | Cabecera blanca de todas las páginas |
 | `logo-carm-negativo.svg` | Mismo manual, grupo `g7364`: versión en negativo | Solo sobre fondo rojo corporativo `#9D2235` |
-| `logo-sms.png` | JPG facilitado por ESDIN (`original/logo-sms-original.jpg`), recortado de márgenes blancos | Siempre junto al de la CARM, a su derecha y nunca más grande |
+| `logo-sms.png` | JPG facilitado por ESDIN (`original/logo-sms-original.jpg`), recortado de márgenes blancos | Siempre junto al de la CARM: el SMS a la izquierda de la cabecera y la CARM a la derecha, el del SMS nunca más grande (prevalencia de la CARM, Decreto 30/2008, art. 3.3) |
 
 ## Cómo se han obtenido los SVG de la CARM
 
