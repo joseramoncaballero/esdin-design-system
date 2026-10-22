@@ -23,7 +23,7 @@ Reglas que se derivan y afectan a estas páginas:
 - Los organismos y entes de derecho público (como el SMS) pueden tener imagen propia, pero **acompañada** del símbolo y logotipo CARM, y **no pueden usar el escudo ni sus elementos** dentro de su propia imagen (art. 3.3 y 3.4).
 - El logo se inserta **solo desde los ficheros de `assets/logo/`**. Nunca se genera con CSS, SVG dibujado a mano ni IA.
 - Tamaño mínimo del símbolo: **caja de 10 mm** (≈ 38 px a 96 dpi). En pantalla, el logo CARM nunca por debajo de **48 px de alto** (por debajo, el texto deja de leerse).
-- En la cabecera van **los dos logos**: primero el de la CARM con la Consejería de Salud (`logo-carm-salud.png`) y después el del SMS, separados por una línea; el del SMS nunca más grande que el de la CARM.
+- En la cabecera van **los dos logos** (decisión de ESDIN, 22/10/2026): el del **SMS a la izquierda**, el **nombre de la herramienta en el centro** y el de la **CARM con la Consejería de Salud** (`logo-carm-salud.png`) **a la derecha**. El Decreto no fija el lado, pero sí la **prevalencia** de la imagen de la CARM (art. 3.3): por eso el escudo es siempre el más grande (72 px de alto frente a 56 px del SMS; 56 y 44 px en móvil). El del SMS nunca más grande que el de la CARM.
 
 Ficheros disponibles:
 
@@ -156,7 +156,8 @@ Antes de animar algo, la pregunta es: **¿esto debería animarse siquiera?** En 
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │ .esdin-cabecera  (blanco, borde inferior rojo 4px)           │
-│  [logo CARM] | [logo SMS]  Nombre de la herramienta  usuario │
+│  [logo SMS]       Nombre de la herramienta      [logo CARM]  │
+│                                  usuario · sesión · Salir    │
 ├──────────────────────────────────────────────────────────────┤
 │ .esdin-migas  Inicio › Sección › Página                      │
 ├──────────────────────────────────────────────────────────────┤
@@ -241,7 +242,7 @@ La normativa de accesibilidad web del sector público (RD 1112/2018, EN 301 549 
 ## 10. Checklist antes de entregar una página
 
 - [ ] Enlaza solo `esdin.css` / `esdin.js` servidos por n8n; sin recursos externos.
-- [ ] Logos CARM (primero) y SMS desde `assets/logo/`, sin modificar; CARM ≥ 48 px de alto.
+- [ ] Logos desde `assets/logo/`, sin modificar: SMS a la izquierda y CARM a la derecha, el de la CARM más grande y ≥ 48 px de alto.
 - [ ] `lang="es"`, un `h1`, "Saltar al contenido".
 - [ ] Contraste verificado; ningún texto amarillo sobre blanco.
 - [ ] Foco visible y navegación completa con teclado.
