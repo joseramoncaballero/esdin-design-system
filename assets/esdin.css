@@ -1,5 +1,6 @@
 /*!
- * ESDIN Design System — esdin.css v1.1.0
+ * ESDIN Design System — esdin.css v1.1.1
+ * v1.1.1 (23/10/2026): nombre de la cabecera centrado entre los dos logos.
  * Servicio Murciano de Salud · Identidad corporativa CARM (Decreto 30/2008)
  * Reglas y criterios: design-system/esdin/MASTER.md
  * Servir siempre desde n8n. No depende de ningún recurso externo.
@@ -146,12 +147,15 @@ a:hover { color: var(--esdin-rojo-700); }
    nombre de la herramienta en el centro y escudo de la CARM a la derecha.
    El Decreto 30/2008 (art. 3.3) no fija el lado: exige que la imagen de la CARM
    acompañe a la del organismo y prevalezca. Por eso el escudo es el más grande
-   (72 px frente a 56 px). La sesión del usuario va en una segunda línea. */
+   (72 px frente a 56 px). La sesión del usuario va en una segunda línea.
+   v1.1.1: columnas «auto 1fr auto». El nombre se centra en el hueco entre los
+   dos logos, a la misma distancia de cada uno. Con «1fr auto 1fr» se centraba
+   en la página y, al ser más ancho el logo de la CARM, quedaba pegado a él. */
 .esdin-cabecera__interior {
   max-width: var(--esdin-ancho-max);
   margin: 0 auto;
   padding: var(--esdin-e-3) var(--esdin-e-5);
-  display: grid; grid-template-columns: 1fr auto 1fr;
+  display: grid; grid-template-columns: auto 1fr auto;
   align-items: center; gap: var(--esdin-e-3) var(--esdin-e-5);
 }
 .esdin-cabecera__logo { grid-row: 1; display: flex; align-items: center; }
