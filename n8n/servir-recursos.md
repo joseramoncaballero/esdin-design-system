@@ -8,8 +8,8 @@ Variante de la opción A con un solo webhook y el nombre en la consulta. Los fic
 
 | Recurso | URL |
 |---|---|
-| `esdin.css` | `/webhook/esdin?r=esdin.css&v=1.1.0` |
-| `esdin.js` | `/webhook/esdin?r=esdin.js&v=1.1.0` |
+| `esdin.css` | `/webhook/esdin?r=esdin.css&v=1.1.1` |
+| `esdin.js` | `/webhook/esdin?r=esdin.js&v=1.1.1` |
 | Logos | `/webhook/esdin?r=logo-sms.png`, `logo-carm-salud.png`, `logo-carm.svg`, `logo-carm-negativo.svg` |
 
 Las herramientas servidas por HER (`/webhook/herramientas?h=…`) llevan además, antes de `esdin.css`, un bloque de respaldo con los tokens, la cabecera y el pie, por si se abren desde un fichero.
@@ -80,8 +80,8 @@ Publicar una versión nueva = insertar la fila y, en la misma transacción, desa
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nombre de la herramienta · ESDIN</title>
-  <link rel="stylesheet" href="/webhook/esdin?r=esdin.css&amp;v=1.1.0">
-  <script src="/webhook/esdin?r=esdin.js&amp;v=1.1.0" defer></script>
+  <link rel="stylesheet" href="/webhook/esdin?r=esdin.css&amp;v=1.1.1">
+  <script src="/webhook/esdin?r=esdin.js&amp;v=1.1.1" defer></script>
 </head>
 <body>
   <a class="esdin-saltar" href="#contenido">Saltar al contenido</a>

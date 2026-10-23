@@ -23,7 +23,7 @@ Reglas que se derivan y afectan a estas páginas:
 - Los organismos y entes de derecho público (como el SMS) pueden tener imagen propia, pero **acompañada** del símbolo y logotipo CARM, y **no pueden usar el escudo ni sus elementos** dentro de su propia imagen (art. 3.3 y 3.4).
 - El logo se inserta **solo desde los ficheros de `assets/logo/`**. Nunca se genera con CSS, SVG dibujado a mano ni IA.
 - Tamaño mínimo del símbolo: **caja de 10 mm** (≈ 38 px a 96 dpi). En pantalla, el logo CARM nunca por debajo de **48 px de alto** (por debajo, el texto deja de leerse).
-- En la cabecera van **los dos logos** (decisión de ESDIN, 22/10/2026): el del **SMS a la izquierda**, el **nombre de la herramienta en el centro** y el de la **CARM con la Consejería de Salud** (`logo-carm-salud.png`) **a la derecha**. El Decreto no fija el lado, pero sí la **prevalencia** de la imagen de la CARM (art. 3.3): por eso el escudo es siempre el más grande (72 px de alto frente a 56 px del SMS; 56 y 44 px en móvil). El del SMS nunca más grande que el de la CARM.
+- En la cabecera van **los dos logos** (decisión de ESDIN, 22/10/2026): el del **SMS a la izquierda**, el **nombre de la herramienta en el centro** y el de la **CARM con la Consejería de Salud** (`logo-carm-salud.png`) **a la derecha**. El Decreto no fija el lado, pero sí la **prevalencia** de la imagen de la CARM (art. 3.3): por eso el escudo es siempre el más grande (72 px de alto frente a 56 px del SMS; 56 y 44 px en móvil). El del SMS nunca más grande que el de la CARM. El nombre se centra **entre los dos logos** (misma distancia a cada uno), no sobre el ancho de la página (v1.1.1, 23/10/2026).
 
 Ficheros disponibles:
 
@@ -175,6 +175,20 @@ Antes de animar algo, la pregunta es: **¿esto debería animarse siquiera?** En 
 - Si se usa cabecera en fondo rojo (versión negativa), **solo** con el fichero oficial negativo del logo.
 - Enlace "Saltar al contenido" como primer elemento enfocable.
 - `<html lang="es">`, un único `<h1>` por página, jerarquía de encabezados sin saltos.
+
+### 5.1 Cabecera de los correos (SDU, Tareas e Informes)
+
+Tabla de tres celdas dentro de una fila con `padding:16px 24px`, fondo blanco y `border-bottom:4px solid #9D2235`:
+
+| Celda | Contenido | Medidas |
+|---|---|---|
+| Izquierda | `logotiposms.png` (182×129) | `width="79"`, imagen 79×56 |
+| Centro | Nombre (18 px, negrita, `#1F2124`) y «ESDIN · Servicio Murciano de Salud» (13 px, `#5A5C5B`) | `padding:3px 12px 0 10px; text-align:center` |
+| Derecha | `regiondemurcia.png` (271×135) | `width="145"`, imagen 145×72, alineada a la derecha |
+
+- El texto se centra **entre los dos logos**, no sobre la tarjeta. La celda del SMS mide lo mismo que su imagen, y el relleno izquierdo es 2 px menor que el derecho porque el PNG del SMS trae unos 3 px de blanco a cada lado y el de la CARM casi ninguno.
+- Los 3 px de relleno superior compensan el hueco que dejan las líneas por debajo, para que el texto quede centrado en vertical con los logos.
+- En el móvil (`max-width:620px`) el texto se oculta en la celda central y aparece debajo de los logos.
 
 ---
 
